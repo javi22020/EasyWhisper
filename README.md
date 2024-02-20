@@ -27,3 +27,11 @@ You can also turn off the verbose mode to the constructor by passing `False` to 
 ```python
 ew = EasyWhisper(verbose=False)
 ```
+## Streaming (still in development)
+You can also use the package to convert speech to text in real time.
+```python
+from easy_whisper_local.streaming import EasyWhisperStreaming
+ews = EasyWhisperStreaming()
+for text in ews.stream_to_text(audio_listener):
+    print(text)
+```

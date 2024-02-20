@@ -5,7 +5,7 @@ import sys
 from typing import Literal, Generator
 class EasyWhisperStreaming:
     """
-    Still in development, this class will allow you to transcribe audio streams in real time.
+    Still in development (could have errors), this class will allow you to transcribe audio streams in real time.
     """
     def __init__(self, model_name: Literal['tiny.en', 'tiny', 'base.en', 'base', 'small.en', 'small', 'medium.en', 'medium', 'large-v1', 'large-v2', 'large'], download_root="models"):
         self.model_name = model_name
@@ -22,7 +22,7 @@ class EasyWhisperStreaming:
         if not os.path.exists(os.path.join(sys.path[0], self.download_root, self.model_name) + ".pt"):
             print(f"Downloading {self.model_name} model...")
         self.model = wh.load_model(self.model_name, device=self.device, download_root=self.download_root)
-    def stream_to_text(self, stream: Generator[bytes], verbose: bool = False):
+    def stream_to_text(self, stream: Generator[bytes], audio_rate: int = 44100, verbose: bool = False):
         """
         Pass a stream to the model and get the transcription text.\n
         Inputs:
@@ -30,4 +30,4 @@ class EasyWhisperStreaming:
             - verbose (bool): Whether to display more information during inference or not (default False).
         """
         for chunk in stream:
-            yield self.model.transcribe(np.frombuffer(chunk), verbose=verbose)["text"]
+            yield self.model.transcribe(np.frombuffer(chunk).reshape((audio_rate)), verbose=verbose)["text"]
