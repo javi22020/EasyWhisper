@@ -6,7 +6,7 @@ It is a wrapper around the openai-whisper package.
 ## Installation
 Use 
 ```bash
-pip install easy-whisper
+pip install easy-whisper-local
 ```
 This is enough to install the package and its dependencies.  
 Besides, you can also install torch with CUDA support to speed up the process using your GPU.  
