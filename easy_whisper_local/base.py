@@ -3,7 +3,10 @@ import os
 import sys
 from typing import Literal
 class EasyWhisper:
-    def __init__(self, model_name: Literal['tiny.en', 'tiny', 'base.en', 'base', 'small.en', 'small', 'medium.en', 'medium', 'large-v1', 'large-v2', 'large'], download_root="models"):
+    """
+    This class allows you to transcribe audio files to text, timestamps or complete dictionaries.\n
+    """
+    def __init__(self, model_name: Literal['tiny.en', 'tiny', 'base.en', 'base', 'small.en', 'small', 'medium.en', 'medium', 'large-v1', 'large-v2', 'large'] = 'medium', download_root: str ='models'):
         self.model_name = model_name
         try:
             from torch import cuda
