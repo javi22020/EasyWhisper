@@ -15,4 +15,6 @@ The model will be downloaded automatically when you run the package for the firs
 ```python
 ew = EasyWhisper()
 text = ew.file_to_text('audio.mp3')
+times = ew.file_to_timestamps('audio.mp3')
+dictionary = ew.file_to_dictionary('audio.mp3')
 ```
