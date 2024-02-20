@@ -7,6 +7,7 @@ class EasyWhisper:
     This class allows you to transcribe audio files to text, timestamps or complete dictionaries.\n
     """
     def __init__(self, model_name: Literal['tiny.en', 'tiny', 'base.en', 'base', 'small.en', 'small', 'medium.en', 'medium', 'large-v1', 'large-v2', 'large'] = 'medium', download_root: str ='models'):
+        """Constructor for the EasyWhisper class.\n"""
         self.model_name = model_name
         try:
             from torch import cuda
@@ -53,4 +54,4 @@ class EasyWhisper:
                 - 'segments': Contains short phrases with its respective timestamps.
                 - 'language': Contains the detected language.
         """
-        return self.model.transcribe(audio_path)
+        return self.model.transcribe(audio_path, verbose=verbose)
