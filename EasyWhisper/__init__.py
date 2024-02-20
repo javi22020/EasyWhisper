@@ -1,0 +1,1 @@
+from .easy_whisper import EasyWhisper
