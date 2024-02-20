@@ -1,2 +1,6 @@
 /models
 /__pycache__
+/venv
+/build
+/dist
+/easy_whisper_local.egg-info

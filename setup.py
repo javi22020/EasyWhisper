@@ -1,8 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='easy-whisper',
+    name='easy-whisper-local',
     version='1.0',
     packages=find_packages(),
-    requires=open('requirements.txt').readlines(),
+    install_requires=[
+        'openai-whisper'
+    ]
 )
