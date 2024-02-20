@@ -13,9 +13,9 @@ Besides, you can also install torch with CUDA support to speed up the process us
 The model will be downloaded automatically when you run the package for the first time, and it will be saved in the subdirectory `models/`.
 ## Usage
 ```python
+from easy_whisper_local.base import EasyWhisper
 ew = EasyWhisper()
 text = ew.file_to_text('audio.mp3')
 times = ew.file_to_timestamps('audio.mp3')
 dictionary = ew.file_to_dictionary('audio.mp3')
-print(text)
 ```
